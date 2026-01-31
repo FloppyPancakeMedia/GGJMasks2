@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://s7sj1bmlo34q"]
 
-[ext_resource type="Script" uid="uid://dk3aagdlrjlbc" path="res://Grid/grid.gd" id="1_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://ikhdimch303i" path="res://Grid/cell.tscn" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://b7qrybxm5mmof" path="res://Grid/grid.tscn" id="1_tlwt5"]
 [ext_resource type="Script" uid="uid://b4qge5p6b4b4v" path="res://debug_cam.gd" id="3_tlwt5"]
 [ext_resource type="Texture2D" uid="uid://bnt1v8ufqgxm3" path="res://icon.svg" id="4_aqk2v"]
 
@@ -20,7 +19,7 @@ albedo_texture = SubResource("NoiseTexture2D_pkg7o")
 
 [sub_resource type="BoxMesh" id="BoxMesh_036b0"]
 material = SubResource("StandardMaterial3D_aqk2v")
-size = Vector3(20, 0.25, 20)
+size = Vector3(15, 0.25, 15)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
 sky_top_color = Color(0.5472487, 0.38187033, 0.5504556, 1)
@@ -44,9 +43,8 @@ volumetric_fog_albedo = Color(0.52058935, 0.34727344, 0.35566166, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4366169, 0)
 mesh = SubResource("BoxMesh_036b0")
 
-[node name="Grid" type="Node3D" parent="." unique_id=553911412]
-script = ExtResource("1_fj7yv")
-cell = ExtResource("2_tlwt5")
+[node name="Grid" parent="." unique_id=1244805501 instance=ExtResource("1_tlwt5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.913207, 0, -3.631444)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1158118653 node_paths=PackedStringArray("cam_positioner")]
 transform = Transform3D(1, 0, 0, 0, 0.030643106, 0.9995304, 0, -0.9995304, 0.030643106, 0, 13.580662, -0.03929043)
