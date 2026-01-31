@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ikhdimch303i"]
+
+[ext_resource type="Script" uid="uid://dnjy4vr7fop38" path="res://cell.gd" id="1_yh0nt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yh0nt"]
+albedo_color = Color(0.9636448, 0.33731523, 0.5462644, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gwrgs"]
+material = SubResource("StandardMaterial3D_yh0nt")
+size = Vector3(1, 0.25, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yh0nt"]
+size = Vector3(1, 0.1, 0.1)
+
+[node name="Cell" type="Node3D" unique_id=622994238 groups=["Cell"]]
+script = ExtResource("1_yh0nt")
+
+[node name="MainSquare" type="MeshInstance3D" parent="." unique_id=1854666553]
+mesh = SubResource("BoxMesh_gwrgs")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=480993025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116529614, 0.44850546)
+mesh = SubResource("BoxMesh_yh0nt")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=324825425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.116529614, -0.44734764)
+mesh = SubResource("BoxMesh_yh0nt")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1469647202]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.44968265, 0.116529614, 0.0009383559)
+mesh = SubResource("BoxMesh_yh0nt")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1436405104]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.44654322, 0.116529614, 0.0009383559)
+mesh = SubResource("BoxMesh_yh0nt")

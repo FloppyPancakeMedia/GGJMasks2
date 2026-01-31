@@ -1,3 +1,41 @@
 [gd_scene format=3 uid="uid://s7sj1bmlo34q"]
 
+[ext_resource type="Script" uid="uid://dk3aagdlrjlbc" path="res://grid.gd" id="1_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://ikhdimch303i" path="res://cell.tscn" id="2_tlwt5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
+albedo_color = Color(0.08468992, 0.08468992, 0.08468992, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_036b0"]
+material = SubResource("StandardMaterial3D_aqk2v")
+size = Vector3(20, 0.25, 20)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
+
+[sub_resource type="Sky" id="Sky_tlwt5"]
+sky_material = SubResource("ProceduralSkyMaterial_fj7yv")
+
+[sub_resource type="Environment" id="Environment_aqk2v"]
+background_mode = 2
+sky = SubResource("Sky_tlwt5")
+
 [node name="World" type="Node3D" unique_id=886625513]
+
+[node name="Stage" type="MeshInstance3D" parent="." unique_id=1507583588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4366169, 0)
+mesh = SubResource("BoxMesh_036b0")
+
+[node name="Grid" type="Node3D" parent="." unique_id=553911412]
+script = ExtResource("1_fj7yv")
+cell = ExtResource("2_tlwt5")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1158118653]
+transform = Transform3D(1, 0, 0, 0, 0.030643106, 0.9995304, 0, -0.9995304, 0.030643106, 0, 13.580662, -0.03929043)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=782624784]
+environment = SubResource("Environment_aqk2v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=454806577]
+transform = Transform3D(1, 0, 0, 0, 0.6146432, 0.78880525, 0, -0.78880525, 0.6146432, 0, 11.897705, 0)
+light_energy = 2.805
+shadow_enabled = true
