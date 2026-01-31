@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b7qrybxm5mmof"]
+
+[ext_resource type="Script" uid="uid://dk3aagdlrjlbc" path="res://Grid/grid.gd" id="1_lh3v8"]
+[ext_resource type="PackedScene" uid="uid://ikhdimch303i" path="res://Grid/cell.tscn" id="2_imkhg"]
+[ext_resource type="PackedScene" uid="uid://dn4ey7e0ljo1m" path="res://Things/oob_thing.tscn" id="3_t7lbc"]
+
+[node name="Grid" type="Node3D" unique_id=1244805501 node_paths=PackedStringArray("oob_thing")]
+script = ExtResource("1_lh3v8")
+cell = ExtResource("2_imkhg")
+oob_thing = NodePath("OOBThing")
+
+[node name="OOBThing" parent="." unique_id=2023474184 instance=ExtResource("3_t7lbc")]
