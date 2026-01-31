@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c1nbha5kqoscm"]
+
+[ext_resource type="Script" uid="uid://dc8gak632tpc0" path="res://Things/thing.gd" id="1_pfrer"]
+
+[node name="Thing" type="Node3D" unique_id=2023474184 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_pfrer")
+sprite = NodePath("Sprite3D")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=992337591]

@@ -4,6 +4,7 @@ extends Node3D
 @export var cell: PackedScene
 
 var cells: Array
+var things: Array[Thing]
 const x_size = 10
 const y_size = 5
 
@@ -23,3 +24,11 @@ func _ready() -> void:
 		
 		# Add row to Cell array
 		cells.append(row)
+
+
+func is_occupied(cell: Vector2i) -> bool:
+	for t in things:
+		if t.is_occupying(cell):
+			return true
+	
+	return false
