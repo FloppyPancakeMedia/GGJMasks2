@@ -2,6 +2,7 @@ extends Node3D
 
 
 @export var cell: PackedScene
+@export var oob_thing: OOBThing
 
 var cells: Array
 var things: Array[Thing]
@@ -27,4 +28,14 @@ func _ready() -> void:
 
 
 func get_collider(cell: Vector2i) -> Thing:
-	pass
+	# Check if out of bounds
+	if cell.x >= x_size or cell.x < 0 or cell.y >= y_size or cell.y < 0:
+		return oob_thing
+	
+	# Check if occupied
+	for t in things:
+		if t.is_occupying(cell):
+			return t
+	
+	# Return nothing if 
+	return null
