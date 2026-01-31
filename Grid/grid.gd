@@ -2,34 +2,36 @@
 class_name Grid
 extends Node3D
 
-
 @export var cell: PackedScene
 @export var oob_thing: OOBThing
 @export var x_size = 10
 @export var y_size = 5
 @export_tool_button("Populate Grid") var function: Callable = populate_grid
 @export_tool_button("Clear Grid") var function1: Callable = clear_grid
+signal validMove(new_position: Vector2i)
+signal invalidMove(at_position: Vector2i)
 var cells: Array
 var things: Array[Thing]
 
-
 func _ready() -> void:
+	for c in get_children():
+		if c is Cell:
+			cells.append(c)
+	print("GRID--_ready", cells[15].coords)
 	pass
 
-
-func get_collider(cell: Vector2i) -> Thing:
-	# Check if out of bounds
-	if cell.x >= x_size or cell.x < 0 or cell.y >= y_size or cell.y < 0:
-		return oob_thing
+# func get_collider(cell: Vector2i) -> Thing:
+# 	# Check if out of bounds
+# 	if cell.x >= x_size or cell.x < 0 or cell.y >= y_size or cell.y < 0:
+# 		return oob_thing
 	
-	# Check if occupied
-	for t in things:
-		if t.is_occupying(cell):
-			return t
+# 	# Check if occupied
+# 	for t in things:
+# 		if t.is_occupying(cell):
+# 			return t
 	
-	# Return nothing if 
-	return null
-
+# 	# Return nothing if 
+# 	return null
 
 func populate_grid() -> void:
 	## Fills grid with cells based on x_size and y_size
@@ -57,10 +59,19 @@ func populate_grid() -> void:
 		# Add row to Cell array
 		cells.append(row)
 
-
 func clear_grid() -> void:
-	for row in cells:
-		for c in row:
+	for c in get_children():
+		if c is Cell:
 			c.queue_free()
 	
 	cells.clear()
+
+func isValidMove(to_position: Vector2i) -> bool:
+	
+
+	return false
+
+func _on_character_grid_move_requested(direction: Vector2i) -> void:
+	# print("GRID--_on_character_grid_move_requested: %s" % direction)
+	isValidMove(direction)
+	pass # Replace with function body.
