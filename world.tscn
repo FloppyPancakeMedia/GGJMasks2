@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dk3aagdlrjlbc" path="res://grid.gd" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://ikhdimch303i" path="res://cell.tscn" id="2_tlwt5"]
+[ext_resource type="Script" uid="uid://b4qge5p6b4b4v" path="res://camera_3d.gd" id="3_tlwt5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
 albedo_color = Color(0.08468992, 0.08468992, 0.08468992, 1)
@@ -19,6 +20,17 @@ sky_material = SubResource("ProceduralSkyMaterial_fj7yv")
 background_mode = 2
 sky = SubResource("Sky_tlwt5")
 
+[sub_resource type="Gradient" id="Gradient_aqk2v"]
+colors = PackedColorArray(0, 0.75497985, 0.7363269, 1, 0.43920192, 0.17279732, 0.48984796, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_036b0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dwbse"]
+width = 100
+height = 100
+noise = SubResource("FastNoiseLite_036b0")
+color_ramp = SubResource("Gradient_aqk2v")
+
 [node name="World" type="Node3D" unique_id=886625513]
 
 [node name="Stage" type="MeshInstance3D" parent="." unique_id=1507583588]
@@ -29,8 +41,10 @@ mesh = SubResource("BoxMesh_036b0")
 script = ExtResource("1_fj7yv")
 cell = ExtResource("2_tlwt5")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1158118653]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1158118653 node_paths=PackedStringArray("cam_positioner")]
 transform = Transform3D(1, 0, 0, 0, 0.030643106, 0.9995304, 0, -0.9995304, 0.030643106, 0, 13.580662, -0.03929043)
+script = ExtResource("3_tlwt5")
+cam_positioner = NodePath("../CamPositioner")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=782624784]
 environment = SubResource("Environment_aqk2v")
@@ -39,3 +53,11 @@ environment = SubResource("Environment_aqk2v")
 transform = Transform3D(1, 0, 0, 0, 0.6146432, 0.78880525, 0, -0.78880525, 0.6146432, 0, 11.897705, 0)
 light_energy = 2.805
 shadow_enabled = true
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1047868936]
+transform = Transform3D(0.9367944, 0, 0.3498804, 0, 1, 0, -0.3498804, 0, 0.9367944, 0, 2.7115169, 0)
+shaded = true
+texture = SubResource("NoiseTexture2D_dwbse")
+
+[node name="CamPositioner" type="Marker3D" parent="." unique_id=1474672809]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 13.465362, 0)
