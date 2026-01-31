@@ -1,25 +1,8 @@
 [gd_scene format=3 uid="uid://s7sj1bmlo34q"]
 
-[ext_resource type="PackedScene" uid="uid://b7qrybxm5mmof" path="res://Grid/grid.tscn" id="1_tlwt5"]
-[ext_resource type="Script" uid="uid://b4qge5p6b4b4v" path="res://debug_cam.gd" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://bxahgrji3n32b" path="res://Levels/level_1.tscn" id="1_tlwt5"]
+[ext_resource type="Script" path="res://debug_cam.gd" id="3_tlwt5"]
 [ext_resource type="Texture2D" uid="uid://bnt1v8ufqgxm3" path="res://icon.svg" id="4_aqk2v"]
-
-[sub_resource type="Gradient" id="Gradient_036b0"]
-colors = PackedColorArray(0.17836827, 0.24712425, 0.37841344, 1, 0.24267602, 0.4694633, 0.45452648, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_dwbse"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pkg7o"]
-noise = SubResource("FastNoiseLite_dwbse")
-color_ramp = SubResource("Gradient_036b0")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqk2v"]
-albedo_color = Color(0.43519226, 0.4351923, 0.43519217, 1)
-albedo_texture = SubResource("NoiseTexture2D_pkg7o")
-
-[sub_resource type="BoxMesh" id="BoxMesh_036b0"]
-material = SubResource("StandardMaterial3D_aqk2v")
-size = Vector3(15, 0.25, 15)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
 sky_top_color = Color(0.5472487, 0.38187033, 0.5504556, 1)
@@ -39,12 +22,7 @@ volumetric_fog_albedo = Color(0.52058935, 0.34727344, 0.35566166, 1)
 
 [node name="World" type="Node3D" unique_id=886625513]
 
-[node name="Stage" type="MeshInstance3D" parent="." unique_id=1507583588]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4366169, 0)
-mesh = SubResource("BoxMesh_036b0")
-
-[node name="Grid" parent="." unique_id=1244805501 instance=ExtResource("1_tlwt5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.913207, 0, -3.631444)
+[node name="Level1" parent="." unique_id=259616684 instance=ExtResource("1_tlwt5")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1158118653 node_paths=PackedStringArray("cam_positioner")]
 transform = Transform3D(1, 0, 0, 0, 0.030643106, 0.9995304, 0, -0.9995304, 0.030643106, 0, 13.580662, -0.03929043)

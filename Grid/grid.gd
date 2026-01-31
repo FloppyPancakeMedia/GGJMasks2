@@ -14,7 +14,9 @@ var things: Array[Thing]
 
 
 func _ready() -> void:
-	pass
+	for c in get_children():
+		if c is Cell:
+			cells.append(c)
 
 
 func get_collider(cell: Vector2i) -> Thing:
@@ -59,8 +61,8 @@ func populate_grid() -> void:
 
 
 func clear_grid() -> void:
-	for row in cells:
-		for c in row:
+	for c in get_children():
+		if c is Cell:
 			c.queue_free()
 	
 	cells.clear()
