@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dn4ey7e0ljo1m"]
+
+[ext_resource type="PackedScene" uid="uid://c1nbha5kqoscm" path="res://Things/thing.tscn" id="1_jivfg"]
+[ext_resource type="Script" uid="uid://5j6qf1tk4yed" path="res://Things/oob_thing.gd" id="2_dnrgw"]
+
+[node name="OOBThing" unique_id=2023474184 instance=ExtResource("1_jivfg")]
+script = ExtResource("2_dnrgw")

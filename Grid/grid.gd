@@ -26,9 +26,5 @@ func _ready() -> void:
 		cells.append(row)
 
 
-func is_occupied(cell: Vector2i) -> bool:
-	for t in things:
-		if t.is_occupying(cell):
-			return true
-	
-	return false
+func get_collider(cell: Vector2i) -> Thing:
+	pass
