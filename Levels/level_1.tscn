@@ -1,75 +1,245 @@
-[gd_scene format=3 uid="uid://bxahgrji3n32b"]
+[gd_scene format=3 uid="uid://clsyn2dypyx08"]
 
-[ext_resource type="PackedScene" uid="uid://df0dipenbcr6d" path="res://Levels/Base/level.tscn" id="1_n0qsc"]
-[ext_resource type="PackedScene" uid="uid://bket2s06ohbhr" path="res://Things/Masks/stage_hand_mask.tscn" id="4_0urlm"]
-[ext_resource type="PackedScene" uid="uid://q7m5jjr7m38e" path="res://Things/player.tscn" id="4_rfktq"]
-[ext_resource type="PackedScene" uid="uid://dil6wjqsngk41" path="res://Things/thing.tscn" id="4_syshm"]
-[ext_resource type="PackedScene" uid="uid://cubdmwsxkycqy" path="res://switch.tscn" id="6_0urlm"]
-[ext_resource type="PackedScene" uid="uid://cydqsq04hwaym" path="res://Things/wall.tscn" id="6_rfktq"]
+[ext_resource type="PackedScene" uid="uid://df0dipenbcr6d" path="res://Levels/Base/level.tscn" id="1_hn12h"]
+[ext_resource type="PackedScene" uid="uid://dil6wjqsngk41" path="res://Things/thing.tscn" id="2_ihfcg"]
+[ext_resource type="PackedScene" uid="uid://cubdmwsxkycqy" path="res://switch.tscn" id="3_rka8t"]
+[ext_resource type="AudioStream" uid="uid://ctvybh2w70mu3" path="res://Tunes/JakeSong1.2.wav" id="5_rfktq"]
+[ext_resource type="AudioStream" uid="uid://dyjgla3isb2xv" path="res://Tunes/JakeSong3.wav" id="6_0urlm"]
 [ext_resource type="AudioStream" uid="uid://clm7m30w7hjcg" path="res://Tunes/GGJSong1-mix2 - 01 Start.wav" id="7_0urlm"]
 
-[node name="Level1" unique_id=259616684 node_paths=PackedStringArray("things_holder") instance=ExtResource("1_n0qsc")]
-things_holder = NodePath("Things")
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_77x7w"]
+shuffle = true
+stream_count = 3
+stream_0 = ExtResource("7_0urlm")
+stream_1 = ExtResource("5_rfktq")
+stream_2 = ExtResource("6_0urlm")
 
-[node name="Grid" parent="." index="0" unique_id=1244805501]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6800659, 0)
-x_size = 12
-y_size = 8
+[node name="Level" unique_id=259616684 instance=ExtResource("1_hn12h")]
 
-[node name="Things" type="Node3D" parent="." index="1" unique_id=198931154]
+[node name="CollisionShape3D" parent="Walls/Wall3" parent_id_path=PackedInt32Array(2041988818) index="0" unique_id=1849229378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.54081345)
 
-[node name="Player" parent="Things" index="0" unique_id=753973246 instance=ExtResource("4_rfktq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
-moveable = true
+[node name="CollisionShape3D" parent="Walls/Wall4" parent_id_path=PackedInt32Array(1689332658) index="0" unique_id=1849229378]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.33327866)
 
-[node name="Thing" parent="Things" index="1" unique_id=1729758428 instance=ExtResource("4_syshm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5)
+[node name="Player" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="0" unique_id=709217095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0.9)
 
-[node name="AnimatedSprite3D" parent="Things/Thing" index="3" unique_id=567630221]
+[node name="StageHandMask" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="1" unique_id=2080980029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 2)
+
+[node name="Barricade" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="2" unique_id=1441709830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 1.026)
+
+[node name="Barrel" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="3" unique_id=1382660433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.005256, 0, 3.0169177)
+
+[node name="Barrel2" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="4" unique_id=753973246 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.005256, 0, 5.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel2" index="3" unique_id=567630221]
 frame = 1
 
-[node name="Thing2" parent="Things" index="2" unique_id=139378037 instance=ExtResource("4_syshm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 5)
+[node name="Barricade2" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="5" unique_id=156775611 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 2.026)
 
-[node name="AnimatedSprite3D" parent="Things/Thing2" index="3" unique_id=567630221]
+[node name="Barricade3" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="6" unique_id=1257136074 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 3.026)
+
+[node name="Barricade4" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="7" unique_id=1995779793 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 5.026)
+
+[node name="Barricade5" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="8" unique_id=731952914 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 6.026)
+
+[node name="Barricade6" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="9" unique_id=1076569677 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 7.026)
+
+[node name="Barricade7" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="10" unique_id=421557928 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 7.026)
+
+[node name="Barricade8" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="11" unique_id=1254766665 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6.026)
+
+[node name="Barricade9" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="12" unique_id=1157788709 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 5.026)
+
+[node name="Barricade10" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="13" unique_id=577345572 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4.026)
+
+[node name="Barricade11" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="14" unique_id=1421295568 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3.026)
+
+[node name="Barricade12" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="15" unique_id=3136219 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2.026)
+
+[node name="Barricade13" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="16" unique_id=986812852 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 1.026)
+
+[node name="Barrel3" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="17" unique_id=1889396737 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.005256, 0, 7.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel3" index="3" unique_id=567630221]
 frame = 1
 
-[node name="StageHandMask" parent="Things" index="3" unique_id=1709541902 instance=ExtResource("4_0urlm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+[node name="Barrel4" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="18" unique_id=108329719 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0052557, 0, 6.0169177)
+pushable = true
 
-[node name="Thing3" parent="Things" index="4" unique_id=2087540516 instance=ExtResource("4_syshm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99249, 0, 5.962163)
-pushable = false
+[node name="AnimatedSprite3D" parent="Things/Barrel4" index="3" unique_id=567630221]
+frame = 1
 
-[node name="Walls" type="Node3D" parent="." index="2" unique_id=229414588]
+[node name="Barrel5" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="19" unique_id=1849155819 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0052557, 0, 6.0169177)
+pushable = true
 
-[node name="Wall" parent="Walls" index="0" unique_id=818187444 instance=ExtResource("6_rfktq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -0.1828152)
+[node name="AnimatedSprite3D" parent="Things/Barrel5" index="3" unique_id=567630221]
+frame = 1
 
-[node name="Wall2" parent="Walls" index="1" unique_id=350124211 instance=ExtResource("6_rfktq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 9)
+[node name="Barrel6" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="20" unique_id=281812258 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0052557, 0, 6.0169177)
+pushable = true
 
-[node name="Wall3" parent="Walls" index="2" unique_id=1873908222 instance=ExtResource("6_rfktq")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.5, 0, 3)
+[node name="AnimatedSprite3D" parent="Things/Barrel6" index="3" unique_id=567630221]
+frame = 1
 
-[node name="Wall4" parent="Walls" index="3" unique_id=436161457 instance=ExtResource("6_rfktq")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0, 3)
+[node name="Barrel7" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="21" unique_id=482382163 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0052557, 0, 5.0169177)
+pushable = true
 
-[node name="Switch" parent="." index="3" unique_id=791078064 instance=ExtResource("6_0urlm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9460163, -0.6470234, 2.9607475)
+[node name="AnimatedSprite3D" parent="Things/Barrel7" index="3" unique_id=567630221]
+frame = 1
 
-[node name="Switch2" parent="." index="4" unique_id=1862021240 instance=ExtResource("6_0urlm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.946016, -0.6470234, 2.9607475)
+[node name="Barrel8" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="22" unique_id=421839885 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0052557, 0, 5.0169177)
+pushable = true
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="5" unique_id=7718112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5430903, 0)
-stream = ExtResource("7_0urlm")
-volume_db = -12.0
+[node name="AnimatedSprite3D" parent="Things/Barrel8" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Barrel9" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="23" unique_id=2062871320 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0052557, 0, 4.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel9" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Barrel10" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="24" unique_id=1538574570 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0052557, 0, 4.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel10" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Barrel11" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="25" unique_id=225208596 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0052557, 0, 4.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel11" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Barrel12" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="26" unique_id=992367170 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0052557, 0, 3.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel12" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Barrel13" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="27" unique_id=805075266 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0052557, 0, 3.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel13" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Barrel14" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="28" unique_id=2034820450 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0052557, 0, 3.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel14" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Barrel15" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="29" unique_id=1274497356 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0052557, 0, 3.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel15" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Barrel16" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="30" unique_id=1581016209 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0052557, 0, 3.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel16" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Barrel17" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="31" unique_id=1063600085 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0052557, 0, 1.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel17" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Barrel18" parent="Things" parent_id_path=PackedInt32Array(1552550333) index="32" unique_id=1438827302 instance=ExtResource("2_ihfcg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0052557, 0, 1.0169177)
+pushable = true
+
+[node name="AnimatedSprite3D" parent="Things/Barrel18" index="3" unique_id=567630221]
+frame = 1
+
+[node name="Switch" parent="Switches" parent_id_path=PackedInt32Array(846214527) index="0" unique_id=791078064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.647, 1)
+
+[node name="Switch2" parent="Switches" parent_id_path=PackedInt32Array(846214527) index="1" unique_id=150822422 instance=ExtResource("3_rka8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.647, 1)
+
+[node name="Switch3" parent="Switches" parent_id_path=PackedInt32Array(846214527) index="2" unique_id=1973602251 instance=ExtResource("3_rka8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -0.647, 1)
+
+[node name="Switch4" parent="Switches" parent_id_path=PackedInt32Array(846214527) index="3" unique_id=2099120558 instance=ExtResource("3_rka8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -0.647, 8)
+
+[node name="Switch5" parent="Switches" parent_id_path=PackedInt32Array(846214527) index="4" unique_id=1846413379 instance=ExtResource("3_rka8t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, -0.647, 8)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4" unique_id=1611014804]
+stream = SubResource("AudioStreamPlaylist_77x7w")
 autoplay = true
 
-[editable path="Grid"]
-[editable path="Grid/(0, 0)"]
-[editable path="Grid/(3, 2)"]
-[editable path="Things/Thing"]
-[editable path="Things/Thing2"]
-[editable path="Things/Thing3"]
+[editable path="Walls/Wall2"]
+[editable path="Walls/Wall3"]
+[editable path="Walls/Wall4"]
+[editable path="Things/Player"]
+[editable path="Things/Barricade"]
+[editable path="Things/Barrel"]
+[editable path="Things/Barrel2"]
+[editable path="Things/Barricade2"]
+[editable path="Things/Barricade3"]
+[editable path="Things/Barricade4"]
+[editable path="Things/Barricade5"]
+[editable path="Things/Barricade6"]
+[editable path="Things/Barricade7"]
+[editable path="Things/Barricade8"]
+[editable path="Things/Barricade9"]
+[editable path="Things/Barricade10"]
+[editable path="Things/Barricade11"]
+[editable path="Things/Barricade12"]
+[editable path="Things/Barricade13"]
+[editable path="Things/Barrel3"]
+[editable path="Things/Barrel4"]
+[editable path="Things/Barrel5"]
+[editable path="Things/Barrel6"]
+[editable path="Things/Barrel7"]
+[editable path="Things/Barrel8"]
+[editable path="Things/Barrel9"]
+[editable path="Things/Barrel10"]
+[editable path="Things/Barrel11"]
+[editable path="Things/Barrel12"]
+[editable path="Things/Barrel13"]
+[editable path="Things/Barrel14"]
+[editable path="Things/Barrel15"]
+[editable path="Things/Barrel16"]
+[editable path="Things/Barrel17"]
+[editable path="Things/Barrel18"]

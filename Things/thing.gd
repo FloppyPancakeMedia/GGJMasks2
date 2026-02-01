@@ -3,7 +3,7 @@ extends Area3D
 
 @export var raycasts: Node3D
 @export var moveable: bool = false
-@export var pushable: bool = true
+@export var pushable: bool = false
 @export var can_push: bool = false
 @export var is_wall: bool = false
 var tweening: bool = false
@@ -29,6 +29,7 @@ func move(dir: Vector2i) -> bool:
 	# Check raycast
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
+		print(str(collider))
 		if check_is_mask(collider):
 			#global_position += Vector3(dir.x, global_position.y, dir.y)
 			execute_move(global_position + Vector3(dir.x, global_position.y, dir.y))

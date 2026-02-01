@@ -2,7 +2,7 @@ class_name World
 extends Node3D
 
 var levels: Dictionary = {
-	1: preload("uid://bxahgrji3n32b")
+	1: preload("res://Levels/level_1.tscn"),
 	
 }
 

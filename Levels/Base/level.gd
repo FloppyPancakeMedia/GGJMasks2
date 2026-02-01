@@ -2,7 +2,7 @@ class_name Level
 extends Node3D
 
 var things: Array[Thing]
-@export var things_holder: Node3D
+@onready var things_holder = $Things
 
 
 func _ready() -> void:
