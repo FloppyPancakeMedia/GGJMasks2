@@ -1,9 +1,49 @@
-[gd_scene format=3 uid="uid://c1nbha5kqoscm"]
+[gd_scene format=3 uid="uid://dil6wjqsngk41"]
 
-[ext_resource type="Script" uid="uid://dc8gak632tpc0" path="res://Things/thing.gd" id="1_pfrer"]
+[ext_resource type="Script" uid="uid://eml4tuvmxmix" path="res://Things/thing.gd" id="1_pfrer"]
 
-[node name="Thing" type="Node3D" unique_id=2023474184 node_paths=PackedStringArray("sprite")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_cdlkb"]
+size = Vector3(0.9, 0.9, 0.9)
+
+[sub_resource type="Gradient" id="Gradient_pfrer"]
+colors = PackedColorArray(0.50244033, 0.25066528, 0.928933, 1, 0.21485361, 0.00024055749, 0.62189883, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xjfyi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cgtsi"]
+width = 50
+height = 50
+noise = SubResource("FastNoiseLite_xjfyi")
+color_ramp = SubResource("Gradient_pfrer")
+
+[node name="Thing" type="Area3D" unique_id=753973246 node_paths=PackedStringArray("raycasts")]
 script = ExtResource("1_pfrer")
-sprite = NodePath("Sprite3D")
+raycasts = NodePath("Raycasts")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=992337591]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1849229378]
+shape = SubResource("BoxShape3D_cdlkb")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=469528074]
+texture = SubResource("NoiseTexture2D_cgtsi")
+
+[node name="Raycasts" type="Node3D" parent="." unique_id=162744258]
+
+[node name="Up" type="RayCast3D" parent="Raycasts" unique_id=115813294]
+target_position = Vector3(0, 0, -1)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Down" type="RayCast3D" parent="Raycasts" unique_id=1812017910]
+target_position = Vector3(0, 0, 1)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Left" type="RayCast3D" parent="Raycasts" unique_id=1603309479]
+target_position = Vector3(-1, 0, 0)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Right" type="RayCast3D" parent="Raycasts" unique_id=1058925228]
+target_position = Vector3(1, 0, 0)
+collide_with_areas = true
+collide_with_bodies = false

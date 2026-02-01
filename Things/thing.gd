@@ -1,51 +1,34 @@
 class_name Thing
-extends Node3D
+extends Area3D
 
-@export var sprite: Sprite3D
-@export var dimensions: Vector2i = Vector2i(1, 1)
-var cur_cell: Vector2i # Top left
-#var occupied_cells: Array[Vector2i]
-
-
-func _ready() -> void:
-	pass # Set initial occupied cells
+@export var raycasts: Node3D
+@export var moveable: bool = false
+@export var pushable: bool = true
 
 
-func initialize(pos: Vector2i) -> void:
-	cur_cell = pos
-	#for x in dimensions.x:
-		#for y in dimensions.y:
-			#occupied_cells.append(Vector2i(pos.x + x, pos.y + y))
-
-
-func is_valid_move(dir: Vector2i) -> bool:
-	#TODO: Move to arobitrary location
-	var is_valid = true
+func move(dir: Vector2i) -> bool:
+	# Retrieve appropriate raycast to check for neighbor
+	var raycast: RayCast3D
 	if dir == Vector2i.UP:
-		for dx in range(dimensions.x):
-			var t = get_parent().get_collider(Vector2i(cur_cell.x+dx, cur_cell.y-1))
-			is_valid = (t != null and t != OOBThing)
+		raycast = raycasts.get_child(0)
 	elif dir == Vector2i.DOWN:
-		for dx in range(dimensions.x):
-			var t = get_parent().get_collider(Vector2i(cur_cell.x+dx, cur_cell.y+dimensions.y))
-			is_valid = (t != null and t != OOBThing)
+		raycast = raycasts.get_child(1)
 	elif dir == Vector2i.LEFT:
-		for dy in range(dimensions.y):
-			var t = get_parent().get_collider(Vector2i(cur_cell.x-1, cur_cell.y+dy))
-			is_valid = (t != null and t != OOBThing)
-	elif dir == Vector2i.RIGHT:
-		for dy in range(dimensions.y):
-			var t = get_parent().get_collider(Vector2i(cur_cell.x+dimensions.x, cur_cell.y+dy))
-			is_valid = (t != null and t != OOBThing)
-	return is_valid
-
-func move(dir: Vector2i) -> void: ## TODO
-	# get possible collistion
-	if is_valid_move(dir):
-		cur_cell += dir
-
-
-func is_occupying(cell: Vector2i) -> bool:
-	return (cell.x >= cur_cell.x and cell.x < cur_cell.x + dimensions.x) and (cell.y <= cur_cell.y and cell.x < cur_cell.y + dimensions.y)
+		raycast = raycasts.get_child(2)
+	else:
+		raycast = raycasts.get_child(3)
+	
+	# Check raycast
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider is Thing and collider is not Wall:
+			if collider.pushable:
+				if collider.move(dir):
+					## TODO: Currently this will move an object twice if multiple objects are moveable and push into each other
+					global_position += Vector3(dir.x, global_position.y, dir.y)
+					return true
+	else:
+		global_position += Vector3(dir.x, global_position.y, dir.y)
+		return true
 	
 	return false

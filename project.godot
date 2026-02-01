@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=165
 config/icon="res://icon.svg"
 
+[autoload]
+
+ThingTypes="*uid://ci0ohtjey70bi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")

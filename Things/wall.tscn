@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cydqsq04hwaym"]
+
+[ext_resource type="PackedScene" uid="uid://dil6wjqsngk41" path="res://Things/thing.tscn" id="1_8tssw"]
+[ext_resource type="Script" uid="uid://dp80r7id8qbwj" path="res://Things/wall.gd" id="2_0cmg7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8tssw"]
+size = Vector3(15, 2, 1)
+
+[node name="Wall" unique_id=753973246 instance=ExtResource("1_8tssw")]
+script = ExtResource("2_0cmg7")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=1849229378]
+shape = SubResource("BoxShape3D_8tssw")
+
+[node name="Sprite3D" parent="." index="1" unique_id=469528074]
+visible = false

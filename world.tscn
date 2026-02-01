@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://s7sj1bmlo34q"]
 
-[ext_resource type="PackedScene" uid="uid://bxahgrji3n32b" path="res://Levels/level_1.tscn" id="1_tlwt5"]
-[ext_resource type="Script" uid="uid://b4qge5p6b4b4v" path="res://debug_cam.gd" id="3_tlwt5"]
-[ext_resource type="Texture2D" uid="uid://bnt1v8ufqgxm3" path="res://icon.svg" id="4_aqk2v"]
+[ext_resource type="Script" uid="uid://b7u7pv1prdjrv" path="res://world.gd" id="1_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://cum2y8lymq6fh" path="res://Things/Assets/stage.fbx" id="5_036b0"]
+
+[sub_resource type="GDScript" id="GDScript_dwbse"]
+script/source = "extends Camera3D
+
+"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
 sky_top_color = Color(0.5472487, 0.38187033, 0.5504556, 1)
@@ -20,27 +24,35 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.006
 volumetric_fog_albedo = Color(0.52058935, 0.34727344, 0.35566166, 1)
 
-[node name="World" type="Node3D" unique_id=886625513]
+[node name="World" type="Node3D" unique_id=886625513 groups=["World"]]
+script = ExtResource("1_aqk2v")
 
-[node name="Level1" parent="." unique_id=259616684 instance=ExtResource("1_tlwt5")]
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1158118653 node_paths=PackedStringArray("cam_positioner")]
-transform = Transform3D(1, 0, 0, 0, 0.030643106, 0.9995304, 0, -0.9995304, 0.030643106, 0, 13.580662, -0.03929043)
-script = ExtResource("3_tlwt5")
-cam_positioner = NodePath("../CamPositioner")
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1158118653]
+transform = Transform3D(1, 0, 0, 0, 0.84676, 0.53197515, 0, -0.53197515, 0.84676, 5.965624, 3.5986319, 10.792807)
+script = SubResource("GDScript_dwbse")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=782624784]
 environment = SubResource("Environment_aqk2v")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=454806577]
 transform = Transform3D(1, 0, 0, 0, 0.6146432, 0.78880525, 0, -0.78880525, 0.6146432, 0, 11.897705, 0)
-light_energy = 2.805
+light_energy = 8.18
+light_indirect_energy = 1.245
 shadow_enabled = true
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1047868936]
-transform = Transform3D(0.9367944, 0, 0.3498804, 0, 1, 0, -0.3498804, 0, 0.9367944, 0, 0.7015443, 0)
-shaded = true
-texture = ExtResource("4_aqk2v")
 
 [node name="CamPositioner" type="Marker3D" parent="." unique_id=1474672809]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 13.465362, 0)
+
+[node name="stage" parent="." unique_id=2022792685 instance=ExtResource("5_036b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8605595, 0, 2.0302825)
+
+[node name="Light" parent="stage" index="0" unique_id=953983139]
+visible = false
+
+[node name="Camera" parent="stage" index="1" unique_id=714404183]
+visible = false
+
+[node name="Cube" parent="stage" index="2" unique_id=1822768456]
+transform = Transform3D(-4.3711385e-05, 950.68494, 1.7803955e-05, 0, -4.1555762e-05, 407.30695, 999.99994, 4.155576e-05, 3.672326e-12, 2.9416957, 0, -4.8602076)
+
+[editable path="stage"]

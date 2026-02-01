@@ -3,13 +3,17 @@
 [ext_resource type="Script" uid="uid://dnjy4vr7fop38" path="res://Grid/cell.gd" id="1_yh0nt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yh0nt"]
-albedo_color = Color(0.9636448, 0.33731523, 0.5462644, 1)
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gwrgs"]
 material = SubResource("StandardMaterial3D_yh0nt")
 size = Vector3(1, 0.25, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elmsx"]
+albedo_color = Color(0.16924527, 0.1692453, 0.16924527, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_yh0nt"]
+material = SubResource("StandardMaterial3D_elmsx")
 size = Vector3(1, 0.1, 0.1)
 
 [node name="Cell" type="Node3D" unique_id=622994238 groups=["Cell"]]
