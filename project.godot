@@ -19,10 +19,17 @@ config/icon="res://icon.svg"
 [autoload]
 
 ThingTypes="*uid://ci0ohtjey70bi"
+WorldStore="*uid://bg0mqg0v4uva5"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")
+
+[global_group]
+
+Pawns=""
+Player=""
+Switch=""
 
 [input]
 

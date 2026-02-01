@@ -28,7 +28,9 @@ volumetric_fog_albedo = Color(0.52058935, 0.34727344, 0.35566166, 1)
 script = ExtResource("1_aqk2v")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1158118653]
-transform = Transform3D(1, 0, 0, 0, 0.84676, 0.53197515, 0, -0.53197515, 0.84676, 5.965624, 3.5986319, 10.792807)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 6.284109, 5.154871, 4.4641376)
+projection = 1
+size = 11.150363
 script = SubResource("GDScript_dwbse")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=782624784]

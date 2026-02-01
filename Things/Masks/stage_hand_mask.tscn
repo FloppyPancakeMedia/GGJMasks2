@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bket2s06ohbhr"]
+
+[ext_resource type="PackedScene" uid="uid://d3xm2sqfyjjsk" path="res://Things/Masks/mask.tscn" id="1_at5wa"]
+[ext_resource type="Script" uid="uid://de3375o3drwiq" path="res://stage_hand_mask.gd" id="2_jjjbp"]
+[ext_resource type="Texture2D" uid="uid://bouvr2qkr0xuc" path="res://Things/Assets/Masks/Stage Hand Mask.png" id="3_xqx8w"]
+
+[node name="StageHandMask" unique_id=753973246 instance=ExtResource("1_at5wa")]
+script = ExtResource("2_jjjbp")
+
+[node name="Sprite3D" parent="." index="1" unique_id=469528074]
+transform = Transform3D(0.053087655, 0, 0, 0, 0.053087655, 0, 0, 0, 0.053087655, 0, 0, 0)
+texture = ExtResource("3_xqx8w")

@@ -1,27 +1,32 @@
 [gd_scene format=3 uid="uid://bxahgrji3n32b"]
 
 [ext_resource type="PackedScene" uid="uid://df0dipenbcr6d" path="res://Levels/Base/level.tscn" id="1_n0qsc"]
+[ext_resource type="PackedScene" uid="uid://bket2s06ohbhr" path="res://Things/Masks/stage_hand_mask.tscn" id="4_0urlm"]
 [ext_resource type="PackedScene" uid="uid://q7m5jjr7m38e" path="res://Things/player.tscn" id="4_rfktq"]
 [ext_resource type="PackedScene" uid="uid://dil6wjqsngk41" path="res://Things/thing.tscn" id="4_syshm"]
+[ext_resource type="PackedScene" uid="uid://cubdmwsxkycqy" path="res://switch.tscn" id="6_0urlm"]
 [ext_resource type="PackedScene" uid="uid://cydqsq04hwaym" path="res://Things/wall.tscn" id="6_rfktq"]
+[ext_resource type="AudioStream" uid="uid://ctvybh2w70mu3" path="res://Tunes/JakeSong1.2.wav" id="7_0urlm"]
 
 [node name="Level1" unique_id=259616684 node_paths=PackedStringArray("things_holder") instance=ExtResource("1_n0qsc")]
 things_holder = NodePath("Things")
 
 [node name="Grid" parent="." index="0" unique_id=1244805501]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5017643, -0.704865, -0.17017555)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6800659, 0)
 x_size = 12
 y_size = 8
 
 [node name="Things" type="Node3D" parent="." index="1" unique_id=198931154]
 
 [node name="Player" parent="Things" index="0" unique_id=753973246 instance=ExtResource("4_rfktq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
 moveable = true
 
 [node name="Thing" parent="Things" index="1" unique_id=1729758428 instance=ExtResource("4_syshm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 5)
-moveable = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5)
+
+[node name="StageHandMask" parent="Things" index="2" unique_id=1709541902 instance=ExtResource("4_0urlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
 
 [node name="Walls" type="Node3D" parent="." index="2" unique_id=229414588]
 
@@ -36,5 +41,14 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.5
 
 [node name="Wall4" parent="Walls" index="3" unique_id=436161457 instance=ExtResource("6_rfktq")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0, 3)
+
+[node name="Switch" parent="." index="3" unique_id=791078064 instance=ExtResource("6_0urlm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9460163, -0.6470234, 2.9607475)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4" unique_id=7718112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5430903, 0)
+stream = ExtResource("7_0urlm")
+volume_db = 34.393
+autoplay = true
 
 [editable path="Grid"]

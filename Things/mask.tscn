@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://d3xm2sqfyjjsk"]
-
-[ext_resource type="PackedScene" uid="uid://dil6wjqsngk41" path="res://Things/thing.tscn" id="1_8pwcx"]
-[ext_resource type="Script" uid="uid://smi3irqp61us" path="res://Things/mask.gd" id="2_edwc0"]
-
-[node name="Mask" unique_id=753973246 instance=ExtResource("1_8pwcx")]
-script = ExtResource("2_edwc0")

@@ -4,6 +4,7 @@ extends Area3D
 @export var raycasts: Node3D
 @export var moveable: bool = false
 @export var pushable: bool = true
+@export var can_push: bool = false
 
 
 func move(dir: Vector2i) -> bool:
@@ -21,7 +22,12 @@ func move(dir: Vector2i) -> bool:
 	# Check raycast
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		if collider is Thing and collider is not Wall:
+		if check_is_mask(collider):
+			global_position += Vector3(dir.x, global_position.y, dir.y)
+			return true
+		if collider is Wall:
+			return false
+		if collider is Thing and can_push:
 			if collider.pushable:
 				if collider.move(dir):
 					## TODO: Currently this will move an object twice if multiple objects are moveable and push into each other
@@ -29,6 +35,18 @@ func move(dir: Vector2i) -> bool:
 					return true
 	else:
 		global_position += Vector3(dir.x, global_position.y, dir.y)
+		return true
+	
+	return false
+
+
+func check_is_mask(collider) -> bool:
+	if self is not Player:
+		return false
+	if collider is Mask:
+		if collider is StageHandMask:
+			collider.pick_up()
+			
 		return true
 	
 	return false

@@ -3,4 +3,4 @@ extends Node3D
 
 
 @export var coords: Vector2i
-var is_occupied: bool
+#var is_occupied: bool

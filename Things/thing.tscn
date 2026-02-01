@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://dil6wjqsngk41"]
 
 [ext_resource type="Script" uid="uid://eml4tuvmxmix" path="res://Things/thing.gd" id="1_pfrer"]
+[ext_resource type="Texture2D" uid="uid://cioqj71djvhnc" path="res://Things/Assets/Weapon rack.png" id="2_0ouqg"]
+[ext_resource type="Texture2D" uid="uid://4147bkrin0v8" path="res://Things/Assets/Throne.png" id="3_10aqy"]
+[ext_resource type="Texture2D" uid="uid://b6y5417xukg38" path="res://Things/Assets/Sword prop.png" id="4_vqpgu"]
+[ext_resource type="Texture2D" uid="uid://btuonss2mbopm" path="res://Things/Assets/Barricade.png" id="5_2xnuj"]
+[ext_resource type="Texture2D" uid="uid://ciu4tq5ekchp" path="res://Things/Assets/Barrel.png" id="6_83x8n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdlkb"]
 size = Vector3(0.9, 0.9, 0.9)
@@ -16,6 +21,34 @@ height = 50
 noise = SubResource("FastNoiseLite_xjfyi")
 color_ramp = SubResource("Gradient_pfrer")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_taxh1"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0ouqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_10aqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vqpgu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2xnuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_83x8n")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
 [node name="Thing" type="Area3D" unique_id=753973246 node_paths=PackedStringArray("raycasts")]
 script = ExtResource("1_pfrer")
 raycasts = NodePath("Raycasts")
@@ -24,6 +57,8 @@ raycasts = NodePath("Raycasts")
 shape = SubResource("BoxShape3D_cdlkb")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=469528074]
+visible = false
+axis = 1
 texture = SubResource("NoiseTexture2D_cgtsi")
 
 [node name="Raycasts" type="Node3D" parent="." unique_id=162744258]
@@ -47,3 +82,9 @@ collide_with_bodies = false
 target_position = Vector3(1, 0, 0)
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=567630221]
+transform = Transform3D(0.061509654, 0, 0, 0, 0.061509654, 0, 0, 0, 0.061509654, 0, 0, 0)
+axis = 1
+sprite_frames = SubResource("SpriteFrames_taxh1")
+animation = &"new_animation"
