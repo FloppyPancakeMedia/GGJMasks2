@@ -63,15 +63,19 @@ func clear_grid() -> void:
 	for c in get_children():
 		if c is Cell:
 			c.queue_free()
-	
 	cells.clear()
 
 func isValidMove(to_position: Vector2i) -> bool:
-	
-
+	# check grid space existence
+	var target_position: Vector2i = to_position
+	if target_position.x >= 0 and target_position.x < x_size and target_position.y >= 0 and target_position.y < y_size:
+		emit_signal("validMove", target_position)
+		return true
+	else:
+		emit_signal("invalidMove", target_position)
 	return false
 
 func _on_character_grid_move_requested(direction: Vector2i) -> void:
 	# print("GRID--_on_character_grid_move_requested: %s" % direction)
 	isValidMove(direction)
-	pass # Replace with function body.
+	pass
