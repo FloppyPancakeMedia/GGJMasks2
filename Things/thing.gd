@@ -5,9 +5,12 @@ extends Area3D
 @export var moveable: bool = false
 @export var pushable: bool = true
 @export var can_push: bool = false
+var tweening: bool = false
 
 
 func move(dir: Vector2i) -> bool:
+	if tweening:
+		return false
 	# Retrieve appropriate raycast to check for neighbor
 	var raycast: RayCast3D
 	if dir == Vector2i.UP:
@@ -23,7 +26,8 @@ func move(dir: Vector2i) -> bool:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 		if check_is_mask(collider):
-			global_position += Vector3(dir.x, global_position.y, dir.y)
+			#global_position += Vector3(dir.x, global_position.y, dir.y)
+			execute_move(global_position + Vector3(dir.x, global_position.y, dir.y))
 			return true
 		if collider is Wall:
 			return false
@@ -31,13 +35,21 @@ func move(dir: Vector2i) -> bool:
 			if collider.pushable:
 				if collider.move(dir):
 					## TODO: Currently this will move an object twice if multiple objects are moveable and push into each other
-					global_position += Vector3(dir.x, global_position.y, dir.y)
+					execute_move(global_position + Vector3(dir.x, global_position.y, dir.y))
 					return true
 	else:
-		global_position += Vector3(dir.x, global_position.y, dir.y)
+		#var tween: Tween = get_tree().create_tween()
+		execute_move(global_position + Vector3(dir.x, global_position.y, dir.y))
 		return true
 	
 	return false
+
+
+func execute_move(pos: Vector3):
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(self, "global_position", pos, 0.3)
+	tween.finished.connect(stop_tweening)
+	tweening = true
 
 
 func check_is_mask(collider) -> bool:
@@ -50,3 +62,7 @@ func check_is_mask(collider) -> bool:
 		return true
 	
 	return false
+
+
+func stop_tweening():
+	tweening = false

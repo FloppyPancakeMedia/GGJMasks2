@@ -7,7 +7,7 @@ var levels: Dictionary = {
 
 var cur_level: Level
 var cur_mask: Mask
-var switches: Array
+#var switches: Array
 
 
 func _ready() -> void:
@@ -26,9 +26,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Left"):
 		cur_level.move_things(Vector2i.LEFT)
 	
+	#var switchList = get_tree().get_nodes_in_group("Switch")
+	#print(switchList)
+	
 
 
 func check_win_condition() -> bool:
+	var switches = get_tree().get_nodes_in_group("Switch")
 	for s in switches:
 		if s.pressed == false:
 			print("Y'ain't won yet...")
@@ -41,5 +45,7 @@ func check_win_condition() -> bool:
 func change_level(num: int) -> void:
 	var level: Level = levels[num].instantiate()
 	add_child(level)
-	switches.clear()
-	switches = get_tree().get_nodes_in_group("Switches") as Array[Switch]
+	#switches.clear()
+	#await(level.ready)
+	#var stuff = get_tree().get_nodes_in_group("Switch")
+	#switches = get_tree().get_nodes_in_group("Switch") 
