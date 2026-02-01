@@ -24,19 +24,19 @@ func is_valid_move(dir: Vector2i) -> bool:
 	if dir == Vector2i.UP:
 		for dx in range(dimensions.x):
 			var t = get_parent().get_collider(Vector2i(cur_cell.x+dx, cur_cell.y-1))
-			is_valid *= (t != null and t != OOBThing)
+			is_valid = (t != null and t != OOBThing)
 	elif dir == Vector2i.DOWN:
 		for dx in range(dimensions.x):
 			var t = get_parent().get_collider(Vector2i(cur_cell.x+dx, cur_cell.y+dimensions.y))
-			is_valid *= (t != null and t != OOBThing)
+			is_valid = (t != null and t != OOBThing)
 	elif dir == Vector2i.LEFT:
 		for dy in range(dimensions.y):
 			var t = get_parent().get_collider(Vector2i(cur_cell.x-1, cur_cell.y+dy))
-			is_valid *= (t != null and t != OOBThing)
+			is_valid = (t != null and t != OOBThing)
 	elif dir == Vector2i.RIGHT:
 		for dy in range(dimensions.y):
 			var t = get_parent().get_collider(Vector2i(cur_cell.x+dimensions.x, cur_cell.y+dy))
-			is_valid *= (t != null and t != OOBThing)
+			is_valid = (t != null and t != OOBThing)
 	return is_valid
 
 func move(dir: Vector2i) -> void: ## TODO

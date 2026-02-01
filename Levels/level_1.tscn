@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://df0dipenbcr6d" path="res://Levels/Base/level.tscn" id="1_n0qsc"]
 [ext_resource type="PackedScene" uid="uid://ikhdimch303i" path="res://Grid/cell.tscn" id="2_3mhv4"]
+[ext_resource type="PackedScene" uid="uid://cok3f7y3vxbm6" path="res://Things/Player/player.tscn" id="3_3mhv4"]
 
 [node name="Level1" unique_id=259616684 instance=ExtResource("1_n0qsc")]
 
@@ -206,6 +207,8 @@ coords = Vector2i(9, 3)
 [node name="(9, 4)" parent="Grid" index="50" unique_id=457873547 instance=ExtResource("2_3mhv4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
 coords = Vector2i(9, 4)
+
+[node name="Player" parent="Grid" index="51" unique_id=2023474184 instance=ExtResource("3_3mhv4")]
 
 [editable path="Grid"]
 [editable path="Grid/OOBThing"]

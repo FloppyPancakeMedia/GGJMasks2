@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://s7sj1bmlo34q"]
 
 [ext_resource type="PackedScene" uid="uid://bxahgrji3n32b" path="res://Levels/level_1.tscn" id="1_tlwt5"]
-[ext_resource type="Script" path="res://debug_cam.gd" id="3_tlwt5"]
+[ext_resource type="Script" uid="uid://b4qge5p6b4b4v" path="res://debug_cam.gd" id="3_tlwt5"]
 [ext_resource type="Texture2D" uid="uid://bnt1v8ufqgxm3" path="res://icon.svg" id="4_aqk2v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
