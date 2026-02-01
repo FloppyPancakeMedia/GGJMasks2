@@ -3,8 +3,10 @@ extends Node3D
 
 var levels: Dictionary = {
 	1: preload("uid://bxahgrji3n32b")
+	
 }
 
+var cur_level_num: int = 1
 var cur_level: Level
 var cur_mask: Mask
 #var switches: Array

@@ -88,3 +88,5 @@ transform = Transform3D(0.061509654, 0, 0, 0, 0.061509654, 0, 0, 0, 0.061509654,
 axis = 1
 sprite_frames = SubResource("SpriteFrames_taxh1")
 animation = &"new_animation"
+
+[node name="PlayerSprite" type="AnimatedSprite3D" parent="." unique_id=608178589]

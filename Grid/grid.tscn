@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://ikhdimch303i" path="res://Grid/cell.tscn" id="2_imkhg"]
 
 [node name="Grid" type="Node3D" unique_id=1244805501]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21597207, 0)
 script = ExtResource("1_lh3v8")
 cell = ExtResource("2_imkhg")
 
@@ -390,3 +389,6 @@ coords = Vector2i(9, 3)
 [node name="(9, 4)" parent="." unique_id=673129843 instance=ExtResource("2_imkhg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 5)
 coords = Vector2i(9, 4)
+
+[editable path="(0, 0)"]
+[editable path="(3, 2)"]

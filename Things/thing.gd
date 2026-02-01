@@ -50,6 +50,8 @@ func execute_move(pos: Vector3):
 	tween.tween_property(self, "global_position", pos, 0.3)
 	tween.finished.connect(stop_tweening)
 	tweening = true
+	if self is Player:
+		$PlayerSprite.play("default")
 
 
 func check_is_mask(collider) -> bool:
@@ -66,3 +68,5 @@ func check_is_mask(collider) -> bool:
 
 func stop_tweening():
 	tweening = false
+	if self is Player:
+		$PlayerSprite.stop()

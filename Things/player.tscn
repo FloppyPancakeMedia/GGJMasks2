@@ -3,6 +3,78 @@
 [ext_resource type="PackedScene" uid="uid://dil6wjqsngk41" path="res://Things/thing.tscn" id="1_n40j1"]
 [ext_resource type="Script" uid="uid://pugsmdp558ky" path="res://Things/player.gd" id="2_jb2hm"]
 [ext_resource type="Texture2D" uid="uid://cbg01gq77ece7" path="res://Things/Assets/Main char idle pose.png" id="3_jb2hm"]
+[ext_resource type="Texture2D" uid="uid://tyep2rdnev2d" path="res://Things/Assets/Stage hand run/frame_01.png" id="4_nqo6s"]
+[ext_resource type="Texture2D" uid="uid://rh8wyqmwl26y" path="res://Things/Assets/Stage hand run/frame_02.png" id="5_qg53n"]
+[ext_resource type="Texture2D" uid="uid://b27nv8uftolfm" path="res://Things/Assets/Stage hand run/frame_03.png" id="6_7m0sl"]
+[ext_resource type="Texture2D" uid="uid://dn4njwjjdpslo" path="res://Things/Assets/Stage hand run/frame_04.png" id="7_r8vjp"]
+[ext_resource type="Texture2D" uid="uid://bavhxy4bakx6e" path="res://Things/Assets/Stage hand run/frame_05.png" id="8_3gyo5"]
+[ext_resource type="Texture2D" uid="uid://cnwj1ora822av" path="res://Things/Assets/Stage hand run/frame_06.png" id="9_44om7"]
+[ext_resource type="Texture2D" uid="uid://chu2380t4yek5" path="res://Things/Assets/Stage hand run/frame_07.png" id="10_d6pnp"]
+[ext_resource type="Texture2D" uid="uid://bmya1a3bebqul" path="res://Things/Assets/Stage hand run/frame_08.png" id="11_4nvkg"]
+[ext_resource type="Texture2D" uid="uid://bhk2g3g1x6eox" path="res://Things/Assets/Stage hand run/frame_09.png" id="12_aug4j"]
+[ext_resource type="Texture2D" uid="uid://7gswmmgsvn4q" path="res://Things/Assets/Stage hand run/frame_10.png" id="13_fr11s"]
+[ext_resource type="Texture2D" uid="uid://n42xjmhfl77i" path="res://Things/Assets/Stage hand run/frame_11.png" id="14_yhsao"]
+[ext_resource type="Texture2D" uid="uid://coa4vx3k8j0e5" path="res://Things/Assets/Stage hand run/frame_12.png" id="15_2sp7r"]
+[ext_resource type="Texture2D" uid="uid://doihdtig0c4o4" path="res://Things/Assets/Stage hand run/frame_13.png" id="16_nva5a"]
+[ext_resource type="Texture2D" uid="uid://dkfs2aip7uumf" path="res://Things/Assets/Stage hand run/frame_14.png" id="17_y535t"]
+[ext_resource type="Texture2D" uid="uid://cit73f3o2tn47" path="res://Things/Assets/Stage hand run/frame_15.png" id="18_bsjq8"]
+[ext_resource type="Texture2D" uid="uid://ddmisuayj7p3j" path="res://Things/Assets/Stage hand run/frame_16.png" id="19_cr1m4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xd03u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nqo6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qg53n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7m0sl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r8vjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3gyo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_44om7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_d6pnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4nvkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_aug4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fr11s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_yhsao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2sp7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nva5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_y535t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_bsjq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_cr1m4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
 
 [node name="Player" unique_id=753973246 groups=["Player"] instance=ExtResource("1_n40j1")]
 script = ExtResource("2_jb2hm")
@@ -10,8 +82,14 @@ pushable = false
 
 [node name="Sprite3D" parent="." index="1" unique_id=469528074]
 transform = Transform3D(0.048704214, 0, 0, 0, 0.048704214, 0, 0, 0, 0.048704214, 0.102553695, 0, 0)
-visible = true
 texture = ExtResource("3_jb2hm")
 
 [node name="AnimatedSprite3D" parent="." index="3" unique_id=567630221]
 visible = false
+
+[node name="PlayerSprite" parent="." index="4" unique_id=608178589]
+transform = Transform3D(0.053973902, 0, 0, 0, 0.053973902, 0, 0, 0, 0.053973902, 0, 0, 0)
+axis = 1
+sprite_frames = SubResource("SpriteFrames_xd03u")
+frame = 1
+frame_progress = 0.8132313
