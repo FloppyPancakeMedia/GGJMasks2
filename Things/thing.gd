@@ -5,8 +5,12 @@ extends Area3D
 @export var moveable: bool = false
 @export var pushable: bool = true
 @export var can_push: bool = false
+@export var is_wall: bool = false
 var tweening: bool = false
 
+var current_anim = "default"
+
+#@onready $AnimatedSprite3D.animation = 
 
 func move(dir: Vector2i) -> bool:
 	if tweening:
@@ -51,7 +55,7 @@ func execute_move(pos: Vector3):
 	tween.finished.connect(stop_tweening)
 	tweening = true
 	if self is Player:
-		$PlayerSprite.play("default")
+		$PlayerSprite.play(current_anim)
 
 
 func check_is_mask(collider) -> bool:

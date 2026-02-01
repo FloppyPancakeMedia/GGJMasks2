@@ -3,13 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dil6wjqsngk41" path="res://Things/thing.tscn" id="1_8pwcx"]
 [ext_resource type="Script" uid="uid://smi3irqp61us" path="res://Things/Masks/mask.gd" id="2_edwc0"]
 
-[node name="Mask" unique_id=753973246 node_paths=PackedStringArray("sprite") instance=ExtResource("1_8pwcx")]
+[node name="Mask" unique_id=753973246 instance=ExtResource("1_8pwcx")]
 script = ExtResource("2_edwc0")
-sprite = NodePath("Sprite3D")
 type = 0
-
-[node name="Sprite3D" parent="." index="1" unique_id=469528074]
-visible = true
+mask_type = 0
 
 [node name="AnimatedSprite3D" parent="." index="3" unique_id=567630221]
-visible = false
+animation = &"mask_stagehand"

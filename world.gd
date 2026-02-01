@@ -14,7 +14,7 @@ var cur_mask: Mask
 
 func _ready() -> void:
 	WorldStore.world = self
-	change_level(1)
+	change_level(cur_level_num)
 	
 
 
@@ -27,6 +27,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		cur_level.move_things(Vector2i.RIGHT)
 	if event.is_action_pressed("Left"):
 		cur_level.move_things(Vector2i.LEFT)
+	if event.is_action_pressed("Reset"):
+		reset_level()
 	
 	#var switchList = get_tree().get_nodes_in_group("Switch")
 	#print(switchList)
@@ -41,12 +43,23 @@ func check_win_condition() -> bool:
 			return false
 	
 	print("You fockin' won, mate!!!")
+	show_victory_screen()
 	return true
 
+func show_victory_screen():
+	var sprite = $CanvasLayer/Sprite2D
+	sprite.visible = true
+	await get_tree().create_timer(0.5).timeout
+	sprite.visible = false
+	
+
+func reset_level():
+	cur_level.queue_free()
+	change_level(cur_level_num)
 
 func change_level(num: int) -> void:
-	var level: Level = levels[num].instantiate()
-	add_child(level)
+	cur_level = levels[num].instantiate()
+	add_child(cur_level)
 	#switches.clear()
 	#await(level.ready)
 	#var stuff = get_tree().get_nodes_in_group("Switch")

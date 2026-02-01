@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://eml4tuvmxmix" path="res://Things/thing.gd" id="1_pfrer"]
 [ext_resource type="Texture2D" uid="uid://cioqj71djvhnc" path="res://Things/Assets/Weapon rack.png" id="2_0ouqg"]
+[ext_resource type="Texture2D" uid="uid://bouvr2qkr0xuc" path="res://Things/Assets/Masks/Stage Hand Mask.png" id="2_83x8n"]
 [ext_resource type="Texture2D" uid="uid://4147bkrin0v8" path="res://Things/Assets/Throne.png" id="3_10aqy"]
+[ext_resource type="Texture2D" uid="uid://6epfbholhw78" path="res://Things/Assets/Masks/King mask.png" id="3_taxh1"]
 [ext_resource type="Texture2D" uid="uid://b6y5417xukg38" path="res://Things/Assets/Sword prop.png" id="4_vqpgu"]
 [ext_resource type="Texture2D" uid="uid://btuonss2mbopm" path="res://Things/Assets/Barricade.png" id="5_2xnuj"]
 [ext_resource type="Texture2D" uid="uid://ciu4tq5ekchp" path="res://Things/Assets/Barrel.png" id="6_83x8n"]
@@ -23,9 +25,31 @@ color_ramp = SubResource("Gradient_pfrer")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_taxh1"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2xnuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_83x8n")
+}],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_taxh1")
+}],
+"loop": true,
+"name": &"mask_king",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_83x8n")
+}],
+"loop": true,
+"name": &"mask_stagehand",
 "speed": 5.0
 }, {
 "frames": [{
@@ -87,6 +111,5 @@ collide_with_bodies = false
 transform = Transform3D(0.061509654, 0, 0, 0, 0.061509654, 0, 0, 0, 0.061509654, 0, 0, 0)
 axis = 1
 sprite_frames = SubResource("SpriteFrames_taxh1")
-animation = &"new_animation"
 
 [node name="PlayerSprite" type="AnimatedSprite3D" parent="." unique_id=608178589]

@@ -1,10 +1,6 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://dbp1y41gjfcxy"]
 
-[ext_resource type="Texture2D" uid="uid://cwclbiuxbynec" path="res://Things/Assets/Textures/Wood floor.png" id="1_tni0w"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1e6x"]
-albedo_color = Color(0.14, 0.05376, 0.016800001, 1)
-albedo_texture = ExtResource("1_tni0w")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_tni0w"]
 _surfaces = [{
