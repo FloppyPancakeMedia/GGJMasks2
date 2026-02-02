@@ -3,7 +3,7 @@ extends Node3D
 
 var levels: Dictionary = {
 	1: preload("res://Levels/level_1.tscn"),
-	
+	2: preload("res://Levels/Base/level.tscn")
 }
 
 var cur_level_num: int = 1
@@ -15,6 +15,13 @@ var cur_mask: Mask
 func _ready() -> void:
 	WorldStore.world = self
 	change_level(cur_level_num)
+	cur_level.visible = false
+	
+	var sprite = $CanvasLayer/Sprite2D
+	sprite.visible = true
+	await get_tree().create_timer(2).timeout
+	sprite.visible = false
+	cur_level.visible = true
 	
 
 
@@ -47,10 +54,11 @@ func check_win_condition() -> bool:
 	return true
 
 func show_victory_screen():
-	var sprite = $CanvasLayer/Sprite2D
+	var ending_screen = load("res://Things/Assets/Textures/Backdrop_texture.png")
+	var sprite = $CanvasLayer/Sprite2D2
+	sprite.texture = ending_screen
 	sprite.visible = true
-	await get_tree().create_timer(0.5).timeout
-	sprite.visible = false
+	
 	
 
 func reset_level():
