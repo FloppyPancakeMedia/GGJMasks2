@@ -18,6 +18,7 @@ func _ready() -> void:
 	cur_level.visible = false
 	
 	var sprite = $CanvasLayer/Sprite2D
+	$CanvasLayer/Sprite2D2.hide()
 	sprite.visible = true
 	await get_tree().create_timer(2).timeout
 	sprite.visible = false
